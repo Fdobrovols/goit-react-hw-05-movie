@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { fetchReviews } from 'services/movieAPI/movieAPI';
 import { fetchReviews } from 'services/fetchMovies/movieAPI';
 import { ReviewItem } from 'components';
 import { Info, List } from './Reviews.styled';
@@ -17,7 +18,14 @@ const ReviewItem = ({ author, content }) => {
         console.log(data);
         setReviews(data);
       })
-      .catch(console.log);
+          .catch(console.log);
+      <Item>
+      <Wrapper>
+        <StyledIcon />
+        <Title>{author}</Title>
+      </Wrapper>
+      <Content>{content}</Content>
+    </Item>
   }, [movieId]);
   return (
     <>

@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
-import PropTypes from 'prop-types';
-import { Outlet } from 'react-router-dom';
-import Form from 'components/Form/Form';
-import SeekedMouvies from 'components/SeekedMouvies/SeekedMouvies';
+import { Link } from 'react-router-dom';
+import { Loader } from 'components';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { fetchTrendingMovies } from 'services/movieAPI/movieAPI';
+import { List, Img, Item, Title } from './Home.styled';
 import {
   Img,
   ImgWrap,

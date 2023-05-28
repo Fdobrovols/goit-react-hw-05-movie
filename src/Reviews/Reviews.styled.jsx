@@ -1,10 +1,39 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { BsPersonVideo2 } from 'react-icons/bs';
 
-export const List = styled.ul`
-  color: white;
+const afterElementStyles = css`
+  content: '';
+  display: block;
+  width: 16%;
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.spacing(7)};
+  height: 2px;
+  background-color: #188064;
+  margin-top: 8px;
 `;
 
-export const Info = styled.p`
-  font-style: italic;
-  color: white;
+export const Item = styled.li`
+  &:not(:last-child)::after {
+    ${afterElementStyles}
+  }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+`;
+export const StyledIcon = styled(BsPersonVideo2)`
+  color: ${props => props.theme.colors.active};
+`;
+
+export const Title = styled.h3`
+  color: ${props => props.theme.colors.active};
+`;
+
+export const Content = styled.p`
+  color: ${props => props.theme.colors.lightGrey};
 `;

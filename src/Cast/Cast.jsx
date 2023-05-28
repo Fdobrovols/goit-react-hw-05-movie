@@ -1,9 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCast } from 'services/fetchMovies/movieAPI';
+import { fetchCast } from 'services/movieAPI/movieAPI';
 import { Actor } from 'components';
 import { List } from './Cast.styled';
+
 
 const { movieId } = useParams();
 
