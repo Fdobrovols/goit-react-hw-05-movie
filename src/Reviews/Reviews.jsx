@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'services/fetchMovies/movieAPI';
 import { ReviewItem } from 'components';
+import { Info, List } from './Reviews.styled';
 
 
 const ReviewItem = ({ author, content }) => {
@@ -21,13 +22,13 @@ const ReviewItem = ({ author, content }) => {
   return (
     <>
       {reviews.length ? (
-        <ul>
+        <List>
           {reviews.map(review => (
             <ReviewItem key={review.id} {...review} />
           ))}
-        </ul>
+        </List>
       ) : (
-        <p>There are not any reviews for this movie yet </p>
+        <Info>There are not any reviews for this movie yet </Info>
       )}
     </>
   );

@@ -1,6 +1,6 @@
-import { Outlet, NavLink } from 'react-router-dom';
-import styled from '@emotion/styled';
-import { Container, Header, Nav } from './Layout.styled';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+import { Container, Header, Nav, StyledLink } from './Layout.styled';
 
 const StyledLink = styled(NavLink)`
   color: #ffffff;
@@ -15,7 +15,7 @@ const Layout = () => {
   return (
     <>
       <Header>
-        <Container>
+        <Container padding>
           <Suspense fallback={<div>Please wait. We are in a process...</div>}>
             <Outlet />
           </Suspense>

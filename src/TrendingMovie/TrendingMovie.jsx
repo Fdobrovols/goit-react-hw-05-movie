@@ -1,4 +1,4 @@
-import { Img, Item } from './TrendingMovie.styled';
+import { Img, Item, Title  } from './TrendingMovie.styled';
 import PropTypes from 'prop-types';
 
 const TrendingMovie = ({ movie,  location }) => {
