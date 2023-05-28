@@ -1,4 +1,5 @@
 import { Img, Item } from './TrendingMovie.styled';
+import PropTypes from 'prop-types';
 
 const TrendingMovie = ({ movie,  location }) => {
   let title = movie?.title || movie?.name;
@@ -19,5 +20,13 @@ const TrendingMovie = ({ movie,  location }) => {
     </Item>
   );
 };
-
+TrendingMovie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+  }).isRequired,
+  location: PropTypes.object.isRequired,
+};
 export default TrendingMovie;

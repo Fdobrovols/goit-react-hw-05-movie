@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
 import Form from 'components/Form/Form';
 import SeekedMouvies from 'components/SeekedMouvies/SeekedMouvies';
@@ -27,7 +28,22 @@ const Movie = ({ movieData }) => {
           <h3>Genres</h3>
                   <ul>{genres}</ul>
                   return (
-    <>
+                  <>
+                      
+                      Movie.propTypes = {
+  movieData: PropTypes.shape({
+    title: PropTypes.string,
+    poster_path: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+};
       <Form />
       <SeekedMouvies />
       <Suspense fallback={<div>Please wait. We are in a process...</div>}>
