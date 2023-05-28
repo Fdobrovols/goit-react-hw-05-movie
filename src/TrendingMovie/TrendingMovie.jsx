@@ -1,6 +1,6 @@
 import { Img, Item } from './TrendingMovie.styled';
 
-const TrendingMovie = ({ movie }) => {
+const TrendingMovie = ({ movie,  location }) => {
   let title = movie?.title || movie?.name;
   let src = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -10,7 +10,7 @@ const TrendingMovie = ({ movie }) => {
   }
   return (
     <Item>
-      <Link to={`movies/${movie.id.toString()}`}>
+     <Link to={`movies/${movie.id.toString()}`} state={{ from: location }}>
         <div style={{ objectFit: 'cover' }}>
           <Img src={src} alt={title} />
         </div>

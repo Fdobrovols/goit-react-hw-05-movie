@@ -15,10 +15,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
     <BrowserRouter basename="/goit-react-hw-05-movies">
-      <ThemeProvider theme={theme}>
-        <Global styles={GlobalStyles} />
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Global styles={GlobalStyles} />
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>
   </React.StrictMode>
 );

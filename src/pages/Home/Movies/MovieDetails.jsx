@@ -6,9 +6,10 @@ import { Loader } from 'components';
 
 const MovieDetails = () => {
  const { movieId } = useParams();
-
+const location = useLocation();
   const [movieData, setMovieData] = useState(null);
-  const [showLoader, setShowLoader] = useState(false);
+    const [showLoader, setShowLoader] = useState(false);
+    const backUpLinkRef = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     setShowLoader(true);
@@ -19,7 +20,8 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <section>
+      <section>
+           <Link to={backUpLinkRef.current}>Back to</Link>
       {showLoader && <Loader visible={showLoader} />}
       {movieData && <Movie movieData={movieData} />}
       <p>Additional information</p>
@@ -31,7 +33,9 @@ const MovieDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+     <Suspense fallback={<div>Please wait. We are in a process...</div>}>
+        <Outlet />
+      </Suspense>
     </section>
   );
 };

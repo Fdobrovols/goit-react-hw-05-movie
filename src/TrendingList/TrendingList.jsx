@@ -1,6 +1,7 @@
 import { Loader, TrendingMovie } from 'components';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchTrendingMovies } from 'services/fetchMovies/movieAPI';
 import { List } from './TrendingList.styled';
 
@@ -21,7 +22,7 @@ const TrendingList = () => {
       <Loader visible={showLoader} />
       <List>
         {trendingMovies.map(movie => (
-          <TrendingMovie key={movie.id} movie={movie} />
+          <TrendingMovie key={movie.id} movie={movie} location={location} />
         ))}
       </List>
     </>

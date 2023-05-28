@@ -16,10 +16,9 @@ const Layout = () => {
     <>
       <Header>
         <Container>
-          <Nav>
-            <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="/movies">Movies</StyledLink>
-          </Nav>
+          <Suspense fallback={<div>Please wait. We are in a process...</div>}>
+            <Outlet />
+          </Suspense>
         </Container>
       </Header>
       <main>
