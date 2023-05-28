@@ -1,6 +1,6 @@
 import { Loader, TrendingMovie } from 'components';
 import { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchTrendingMovies } from 'services/fetchMovies/movieAPI';
 import { List } from './TrendingList.styled';
 

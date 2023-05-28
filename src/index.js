@@ -7,6 +7,9 @@ export { default as Loader } from './Loader/Loader.jsx';
 import { App } from 'components/App';
 import './index.css';
 import { GlobalStyles, theme } from 'styles';
+export { default as Movie } from './Movie/Movie.jsx';
+export { default as Actor } from './Actor/Actor.jsx';
+export { default as ReviewItem } from './ReviewItem/ReviewItem.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
