@@ -7,18 +7,17 @@ import { MovieList } from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieList = searchParams.get('query');
-
+  const query = searchParams.get('query');
   const [movies, setMovies] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    if (!movieList) return;
+    if (!query) return;
 
-    fetchMoviesByName(movieList)
+    fetchMoviesByName(query)
       .then(setMovies)
       .finally(() => setShowLoader(false));
-  }, [movieList]);
+  }, [query]);
 
   const updateParams = params => {
     setSearchParams(params);
@@ -28,7 +27,7 @@ const Movies = () => {
     <section>
       <Form updateParams={updateParams} />
       <Loader visible={showLoader} />
-      {movieList.length > 0 && <MovieList movies={movies} />}
+      {query && <MovieList movies={movies} />}
     </section>
   );
 };
