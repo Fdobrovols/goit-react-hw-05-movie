@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <section>
       <Loader visible={showLoader} />
-      {trendingMovies.length && <MovieList movies={trendingMovies} />}
+      {trendingMovies.length > 0 && <MovieList movies={trendingMovies} />}
     </section>
   );
 };
